@@ -43,7 +43,7 @@ class Twitter:
             'x-twitter-client-language': 'en',
         }
 
-        self.session = ClientSession(headers=self.headers,
+        self.session = ClientSession(headers=self.headers, trust_env=True,
                                      connector=self.proxy and ProxyConnector.from_url("http://" + self.proxy))
 
     async def reply(self, text: str, tweet_id: str):
